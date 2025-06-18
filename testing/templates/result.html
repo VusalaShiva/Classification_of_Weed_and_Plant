@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url("{{ url_for('static', filename='background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white; /* Ensures text is visible on darker backgrounds */
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6); /* Adds a dark overlay for better readability */
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        img {
+            max-width: 500px;
+            margin-top: 20px;
+            border: 2px solid #ddd;
+            background: white; /* Adds a white background to images */
+            padding: 5px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detection Result</h1>
+        
+        <h3>Uploaded Image</h3>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Input Image">
+        
+        <h3>Processed Image</h3>
+        <img src="{{ url_for('static', filename='outputs/' + filename) }}" alt="Output Image">
+        
+        <br><br>
+        <a href="/">Upload Another Image</a>
+    </div>
+</body>
+</html>
